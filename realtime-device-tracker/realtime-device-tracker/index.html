@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login · Device Tracker (Demo)</title>
+<link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<div class="app" style="grid-template-columns:1fr">
+  <main class="main" style="max-width:820px; margin: 0 auto;">
+    <div class="card" style="margin-top:40px">
+      <div style="display:flex; align-items:center; gap:12px">
+        <img src="assets/logo.svg" width="42" height="42" alt="Logo"/>
+        <div><h2 style="margin:0">Device Tracker (Demo)</h2><div class="badge">Authorized devices only · No IMEI</div></div>
+      </div>
+      <form onsubmit="login(event)" style="margin-top:18px; display:grid; gap:12px">
+        <div><label>Email</label><input id="email" class="input" type="email" placeholder="you@company.com" required></div>
+        <div><label>Password</label><input id="password" class="input" type="password" placeholder="••••••••" required></div>
+        <div style="display:flex; gap:10px"><button class="btn">Login</button><button type="button" class="btn ghost" onclick="window.location.href='dashboard.html'">Skip (demo)</button></div>
+        <p class="footer-note">This is a front-end showcase meant for screenshots and demos.</p>
+      </form>
+    </div>
+  </main>
+</div>
+<script src="assets/app.js"></script></body></html>

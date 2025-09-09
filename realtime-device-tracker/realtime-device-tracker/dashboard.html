@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · Device Tracker (Demo)</title>
+<link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://unpkg.com"></head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="dashboard.html"><img src="assets/logo.svg" alt="Logo"><h1>Device Tracker</h1></a>
+    <div class="search"><input placeholder="Search"><button class="btn ghost" onclick="alert('Demo search')">Go</button></div>
+    <nav class="nav">
+      <a data-page="dashboard" href="dashboard.html">🏠 Dashboard</a>
+      <a data-page="live" href="live.html">📍 Live Map</a>
+      <a data-page="devices" href="devices.html">📱 Devices</a>
+      <a data-page="settings" href="settings.html">⚙️ Settings</a>
+    </nav>
+    <div style="margin-top:auto"><button class="btn ghost" onclick="logout()">Logout</button>
+      <p class="footer-note">Demo only · No IMEI or unauthorized tracking</p></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><h2>Dashboard</h2><span class="badge">Admin</span></div>
+    
+<section class="grid c4">
+  <div class="card"><h3>Total Devices</h3><div class="stat" id="kpi-devices">0</div></div>
+  <div class="card"><h3>Online</h3><div class="stat" id="kpi-online">0</div></div>
+  <div class="card"><h3>Offline</h3><div class="stat" id="kpi-offline">0</div></div>
+  <div class="card"><h3>Update Rate</h3><div class="stat">2s</div></div>
+</section>
+<section class="card" style="margin-top:16px">
+  <div style="display:flex; justify-content:space-between; align-items:center">
+    <h3>Devices</h3><a class="btn ghost" href="live.html">View Live Map</a>
+  </div>
+  <table class="table">
+    <thead><tr><th>Label</th><th>ID</th><th>Owner</th><th>Phone</th><th>Status</th></tr></thead>
+    <tbody id="dev-tbody"></tbody>
+  </table>
+</section>
+<script>renderDashboard();</script>
+
+  </main>
+</div>
+<script src="assets/app.js"></script><script>initSidebar('dashboard'); requireAuth();</script>
+</body></html>

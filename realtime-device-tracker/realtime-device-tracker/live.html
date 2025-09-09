@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Map · Device Tracker (Demo)</title>
+<link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://unpkg.com"></head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="dashboard.html"><img src="assets/logo.svg" alt="Logo"><h1>Device Tracker</h1></a>
+    <div class="search"><input placeholder="Search"><button class="btn ghost" onclick="alert('Demo search')">Go</button></div>
+    <nav class="nav">
+      <a data-page="dashboard" href="dashboard.html">🏠 Dashboard</a>
+      <a data-page="live" href="live.html">📍 Live Map</a>
+      <a data-page="devices" href="devices.html">📱 Devices</a>
+      <a data-page="settings" href="settings.html">⚙️ Settings</a>
+    </nav>
+    <div style="margin-top:auto"><button class="btn ghost" onclick="logout()">Logout</button>
+      <p class="footer-note">Demo only · No IMEI or unauthorized tracking</p></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><h2>Live Map</h2><span class="badge">Admin</span></div>
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<section class="grid c2">
+  <div class="card">
+    <h3>Live Map (Demo)</h3>
+    <div id="map"></div>
+    <div style="display:flex; gap:10px; margin-top:10px">
+      <select id="deviceSel" class="input"></select>
+      <div class="badge">Last update: <span id="lastTs">-</span></div>
+    </div>
+    <p class="footer-note">Movement simulated every 2 seconds to showcase real-time updates.</p>
+  </div>
+  <div class="card">
+    <h3>Make it production-ready (legal & ethical)</h3>
+    <ol style="margin-left:16px; line-height:1.8">
+      <li>Track only devices you own or have explicit user consent for.</li>
+      <li>Install a companion app that shares GPS via your API (with OS permission prompts).</li>
+      <li>Use secure auth (JWT/server sessions) and HTTPS.</li>
+      <li>Rotate device tokens; avoid storing sensitive identifiers in the clear.</li>
+      <li>Provide users a Pause/Stop tracking control and clear privacy policy.</li>
+    </ol>
+  </div>
+</section>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>renderLiveMap();</script>
+
+  </main>
+</div>
+<script src="assets/app.js"></script><script>initSidebar('live'); requireAuth();</script>
+</body></html>

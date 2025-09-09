@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings · Device Tracker (Demo)</title>
+<link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://unpkg.com"></head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="dashboard.html"><img src="assets/logo.svg" alt="Logo"><h1>Device Tracker</h1></a>
+    <div class="search"><input placeholder="Search"><button class="btn ghost" onclick="alert('Demo search')">Go</button></div>
+    <nav class="nav">
+      <a data-page="dashboard" href="dashboard.html">🏠 Dashboard</a>
+      <a data-page="live" href="live.html">📍 Live Map</a>
+      <a data-page="devices" href="devices.html">📱 Devices</a>
+      <a data-page="settings" href="settings.html">⚙️ Settings</a>
+    </nav>
+    <div style="margin-top:auto"><button class="btn ghost" onclick="logout()">Logout</button>
+      <p class="footer-note">Demo only · No IMEI or unauthorized tracking</p></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><h2>Settings</h2><span class="badge">Admin</span></div>
+    
+<section class="grid c2">
+  <div class="card">
+    <h3>Organization Settings</h3>
+    <div style="display:grid; gap:12px">
+      <div><label>Company Name</label><input class="input" value="Cyber Solutions Pvt Ltd"></div>
+      <div><label>Update Interval</label><input class="input" value="2 seconds (demo)"></div>
+      <div><label>Tracking Policy</label>
+        <select><option>Work hours only</option><option>Always on</option><option>Disabled</option></select>
+      </div>
+      <button class="btn" onclick="alert('Saved (demo)')">Save</button>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Export Demo Data</h3>
+    <p class="footer-note">Exports only mock paths & devices stored in this browser.</p>
+    <button class="btn" onclick="
+      const data={devices: JSON.parse(localStorage.getItem('rt_devices')||'[]'), tracks: JSON.parse(localStorage.getItem('rt_tracks')||'{}')};
+      const blob=new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+      const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='rt-demo-data.json'; a.click();
+    ">Download JSON</button>
+  </div>
+</section>
+
+  </main>
+</div>
+<script src="assets/app.js"></script><script>initSidebar('settings'); requireAuth();</script>
+</body></html>
